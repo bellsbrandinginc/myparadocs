@@ -8,11 +8,7 @@
       
       <ion-list>
         
-         <p class="center padding profile">
-        <a ng-click="changeProfilePicture()">
-           <img ng-src="{{AuthData.facebook.profileImageURL|| 'img/ionic.png'}}">
-         </a>
-      </p>
+       
           <!-- Profile -->
         <ion-item class="item item-divider">
          Profile
@@ -61,7 +57,7 @@
         </ion-item>
 		
 	
-     <ion-item class="item item-icon-left item-assertive" menu-close ui-sref="splash">
+     <ion-item class="item item-icon-left item-assertive" menu-close ui-sref="">
           		          <i class="icon ion-power"></i>
 
 		  Logout
@@ -72,22 +68,6 @@
         <!-- ./ Account -->
 
       </ion-list><br/><br>
-<ion-tabs class="tabs-icon-top tabs-dark">
 
-        <ion-tab title="Dashboard" icon="ion-ios-home" ui-sref="discover">
-          <ion-nav-view name="dash-tab"></ion-nav-view>
-        </ion-tab>
-
-        <ion-tab title="Contact" icon="ion-ios-people" ui-sref="signup">
-          <ion-nav-view name="konfigurasi-tab"></ion-nav-view>
-        </ion-tab>
-		
-		
-		
-		<ion-tab title="Profile" icon="ion-ios-person" ui-sref="app.account">
-          <ion-nav-view name="konfigurasi-tab"></ion-nav-view>
-        </ion-tab>
-		
-      </ion-tabs>
   </ion-content>
 </ion-view>
