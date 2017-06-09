@@ -1,0 +1,42 @@
+
+<ion-view>
+
+    <ion-header-bar align-title="center" class="bar-balanced">
+  <div class="buttons">
+    <button class="button icon ion-arrow-left-a" ui-sref="discover"></button>
+  </div>
+  <h1 class="title">MyParaDocs</h1>
+  <div class="buttons">
+    <button class="button icon ion-ios-gear" ui-sref="app.account"></button>
+  </div>
+</ion-header-bar>
+    
+
+ <ion-content style="background:url('img/background10.png');background-repeat:no-repeat;background-size:100% 100%;">
+
+	 
+  <form ng-submit="doSignUp()">
+    <div class="list">
+	  <label class="item item-input item-floating-label">
+          <span class="input-label" style="color:white">Organization</span>
+		  <input type="email" ng-model="signUpData.userOrganization"  placeholder="Organization Name" style="background:transparent;">
+        </label>
+		   
+
+
+          
+         
+        
+    </div>
+    <div class="center padding">
+      <button class="button button-block button-balanced" ui-sref="discover4" style="color:blue">Next</button>
+    </div>
+	
+	
+  </form>
+
+ 
+
+</ion-content>
+
+    </ion-view>

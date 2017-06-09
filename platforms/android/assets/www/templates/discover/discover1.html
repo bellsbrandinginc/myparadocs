@@ -1,0 +1,47 @@
+
+<ion-view>
+
+    <ion-header-bar align-title="center" class="bar-calm">
+  <div class="buttons">
+    <button class="button icon ion-ios-cart" ui-sref="app.cart"></button>
+  </div>
+  <h1 class="title">Bells Branding, Inc</h1>
+  <div class="buttons">
+    <button class="button icon ion-ios-gear" ui-sref="app.account"></button>
+  </div>
+</ion-header-bar>
+    <ion-content style="background-image:url(img/background10.jpg)" scroll="true">
+
+<div id="video-container">
+  <!-- Video -->
+  <video id="video" width="640" height="365" controls="" fullscreen="">
+    <source ng-src="media/commercial.mp4" type="video/mp4">
+
+  </video>
+  
+  </div><br/><br/><br/><br/>
+<ion-tabs class="tabs-icon-top tabs-dark">
+
+        <ion-tab title="Dashboard" icon="ion-ios-home" ui-sref="">
+          <ion-nav-view name="dash-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Shop" icon="ion-ios-cart" ui-sref="app.browse">
+          <ion-nav-view name="rekening-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Portfolio" icon="ion-ios-camera" ui-sref="signup">
+          <ion-nav-view name="konfigurasi-tab"></ion-nav-view>
+        </ion-tab>
+		
+		<ion-tab title="Commercial" icon="ion-ios-film" ui-sref="discover1">
+          <ion-nav-view name="konfigurasi-tab"></ion-nav-view>
+        </ion-tab>
+		
+		<ion-tab title="Profile" icon="ion-ios-person" ui-sref="app.account">
+          <ion-nav-view name="konfigurasi-tab"></ion-nav-view>
+        </ion-tab>
+		
+      </ion-tabs>
+</ion-content>
+    </ion-view>

@@ -1,0 +1,12 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.2.4"
+  },
+  "dependencies": {
+    "pdfmake": "^0.1.30",
+    "angular-pdf": "^1.6.3",
+    "chance": "^1.0.9"
+  }
+}

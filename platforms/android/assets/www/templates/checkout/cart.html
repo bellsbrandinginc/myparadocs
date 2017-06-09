@@ -1,0 +1,49 @@
+<ion-view view-title="Cart">
+ <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+        <button 
+          ng-show="current != 'app.cart' && current != 'app.checkout' && current != 'app.order-detail'"
+          class="button button-icon button-clear  button-small ion-ios-cart-outline" ng-click="goTo('app.cart')">
+          {{Cart.CachedTotal.total_count}}
+		  
+		 
+        </button>
+		 <button ui-sref="discover" class="button button-large" style="position:absolute;background:none;border:none;
+					position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);text-align:center;float:center; width:300px;">
+
+		 <h1 class="title {{slideIndex ==1 ? 'color-red' : 'color-gray'}}" ui-sref="discover"  style="top:3px; margin-right: 1cm;text-align:center;float:center; ">
+			<img ng-src="img/ben.png" width="35" height="35" style="position: absolute;top:0px; text-align:center;float:center;">
+
+			  </h1></button>
+		
+      </ion-nav-buttons>
+  <ion-content class="grey" style="background:url('img/background10.jpg');background-repeat:no-repeat;background-size:100% 100%;">
+    
+    <p class="center" ng-show="Cart.CachedTotal['total_count'] == 0" style="color:white">
+      <br>
+      Your cart is empty
+    </p>
+    <button class="button button-block button-dark" id="gradient" ui-sref="app.browse" style="color:black">Browse Our Products</button>
+    <checkout-cart></checkout-cart>
+    
+    <!-- Spacing -->
+    <br><br><br><br><br>
+    
+  </ion-content>
+  
+  <!-- https://github.com/driftyco/ionic/issues/2824 -->
+  <div class="bar bar-footer bar-dark" id="gradient" ng-show="Cart.CachedTotal['total_count'] != 0">
+    <button 
+      class="button button-full button-uppercase" style="margin: 0px; width: 100%; height: 100%"
+      ng-click="goToCheckout()">
+        <span ng-show="AuthData.uid">
+          Place order
+        </span>
+        <span ng-show="!AuthData.uid">
+          Sign in to place order
+        </span>
+      </button>
+  </div>
+
+</ion-view>

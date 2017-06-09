@@ -1,0 +1,105 @@
+<ion-view view-title="Search">
+   <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+        <button 
+          ng-show="current != 'app.cart' && current != 'app.checkout' && current != 'app.order-detail'"
+          class="button button-icon button-clear  button-small ion-ios-cart-outline" ng-click="goTo('app.cart')">
+          {{Cart.CachedTotal.total_count}}
+		  
+		 
+        </button>
+		 <button ui-sref="discover" class="button button-large" style="position:absolute;background:none;border:none;
+					position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);text-align:center;float:center; width:300px;">
+
+		 <h1 class="title {{slideIndex ==1 ? 'color-red' : 'color-gray'}}" ui-sref="app.search"  style="top:0px; margin-right: 1cm;text-align:center;float:center; ">
+			<img ng-src="img/ben.png" width="35" height="35" style="position: absolute;top:0px; text-align:center;float:center;">
+
+			  </h1></button>
+		
+      </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-icon ion-ios-more" ng-click="openPopover($event)"></button>
+    &nbsp;&nbsp;&nbsp;
+	
+    <button class="button button-clear button-icon ion-ios-search" ng-click="goTo('app.search')"></button>
+  </ion-nav-buttons>
+  
+  <ion-content ng-switch="status.loading" style="background:url('img/background10.png');background-repeat:no-repeat;background-size:100% 100%;">
+    
+    <div class="list list-inset">
+      <form ng-submit="searchProducts()" style="background-color:black">
+        <label class="item item-input" style="background-color:black;opacity:.75;color:white">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search" ng-model="status.q" value="{{status.q}}" style="color:white">
+        </label>
+      </form>
+    </div>
+    
+    <div ng-switch-when="null">
+      <div class="center padding">
+        No products found
+      </div>
+    </div>
+    <div ng-switch-when="true">
+      <div class="center padding">
+        Searching for the latest products... <br><br>
+        <ion-spinner icon="ripple"></ion-spinner>
+      </div>
+    </div>
+    <div ng-switch-when="false">
+      <!-- CONTENT -->
+      
+      <ion-refresher
+        pulling-icon="ion-ios-arrow-thin-down"
+        spinner="ripple"
+        pulling-text="Pull to refresh..."
+        on-refresh="doRefresh()">
+      </ion-refresher>
+
+      <!--Loaded -->
+      <browse-products></browse-products>
+      <!-- // Loaded -->
+      
+      <!-- // CONTENT -->
+    </div>
+    
+  </ion-content>
+</ion-view>
+
+
+<script id="popovers/popover-sorting.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-header-bar>
+      <h1 class="title">Change sorting</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item ng-click="selectSortProperty('price', 'desc')">
+          Price (H-L)
+        </ion-item>
+        <ion-item ng-click="selectSortProperty('price', 'asc')">
+          Price (L-H)
+        </ion-item>
+        <ion-item ng-click="selectSortProperty('sales_count', 'desc')">
+          Most popular
+        </ion-item>
+        <ion-item ng-click="selectSortProperty('sales_value_total', 'desc')">
+          Highest turnover
+        </ion-item>
+        <ion-item ng-click="selectSortProperty('comments_count', 'desc')">
+          Most discussed
+        </ion-item>
+        <ion-item ng-click="selectSortProperty('ratings_overall', 'desc')">
+          Best rating
+        </ion-item>
+        <ion-item ng-click="selectSortProperty('timestamp_creation', 'desc')">
+          Date
+        </ion-item>
+        <ion-item ng-click="selectSortProperty('timestamp_update', 'desc')">
+          Last updated
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-popover-view>
+</script>

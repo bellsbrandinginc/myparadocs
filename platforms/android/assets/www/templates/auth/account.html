@@ -1,0 +1,115 @@
+ <ion-view view-title="Settings">
+ 
+  <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+        <button 
+          ng-show="current != 'app.cart' && current != 'app.checkout' && current != 'app.order-detail'"
+          class="button button-icon button-clear  button-small ion-ios-cart-outline" ng-click="goTo('app.cart')">
+          {{Cart.CachedTotal.total_count}}
+		  
+		 
+        </button>
+		 <button ui-sref="discover" class="button button-large" style="position:absolute;background:none;border:none;
+					position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);text-align:center;float:center; width:300px;">
+
+		 <h1 class="title {{slideIndex ==1 ? 'color-red' : 'color-gray'}}" ui-sref="app.search"  style="top:0px; margin-right: 1cm;text-align:center;float:center; ">
+			<img ng-src="img/ben.png" width="35" height="35" style="position: absolute;top:0px; text-align:center;float:center;">
+
+			  </h1></button>
+		
+      </ion-nav-buttons>
+  <ion-content ng-switch="status.loading" style="background:url('img/background10.png');background-repeat:no-repeat;background-size:100% 100%;">
+
+    <!-- view is loading... -->
+    <div ng-switch-when="true" class="padding center">
+      <br>
+        Loading account details... <br><br>
+        <ion-spinner icon="ripple"></ion-spinner>
+
+      <p ng-show="status.toggleLoginManual">
+        <button class="button button-full-dark" ng-click="login()">Toggle login manually</button>
+      </p>
+      
+    </div> <!-- ./ view is loading... -->
+
+    <!-- view has loaded -->
+    <div ng-switch-when="false">
+      
+      <p class="center padding profile">
+        <a ng-click="changeProfilePicture()">
+           <img ng-src="{{ProfileData.profilePicture || 'img/ionic.png'}}">
+         </a>
+      </p>
+      
+      <ion-list>
+        
+        
+        
+        <!-- Profile -->
+        <ion-item class="item item-divider">
+         Profile
+          <span class="item-note">
+            <ion-spinner ng-show="status.loadingProfile" class="spinner-small"></ion-spinner>
+          </span>
+        </ion-item>
+        
+        <ion-item ng-click="changeDisplayName()" style="color:white;background:transparent">
+          Display name
+          <span class="item-note">
+            {{ProfileData.meta.displayName}}
+          </span>
+        </ion-item>
+        
+        <ion-item ng-click="changeUsername()" style="color:white;background:transparent">
+          Username
+          <span class="item-note">
+            {{ProfileData.meta.username}}
+          </span>
+        </ion-item>
+        
+        <ion-item ng-click="changeProfilePicture()">
+          Profile picture
+        </ion-item>
+        
+        <ion-item ng-click="other()" style="color:white;background:transparent">
+          Bio & Other
+        </ion-item>
+        <!-- ./ Profile -->
+        
+        
+        <ion-item class="item item-divider">
+         Buyer settings
+        </ion-item>
+        
+        <ion-item ng-click="delivery()" style="color:white;background:transparent">
+          Delivery details
+        </ion-item>
+      
+        <!-- Account -->
+        <ion-item class="item item-divider">
+          Account
+        </ion-item>
+
+        <ion-item ng-click="changeEmail()" ng-show="AuthData.provider == 'password'" style="color:white;background:transparent">
+          E-mail
+          <span class="item-note">
+            {{AuthData.password.email}}
+          </span>
+        </ion-item>
+
+        <ion-item ng-click="changePassword('change')" ng-show="AuthData.provider == 'password'" style="color:white;background:transparent">
+          Password
+          <span class="item-note">
+            ***
+          </span>
+        </ion-item>
+
+        
+        <!-- ./ Account -->
+
+      </ion-list>
+
+    </div> <!-- ./ view has loaded -->
+  </ion-content>
+</ion-view>

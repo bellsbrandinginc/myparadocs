@@ -1,0 +1,36 @@
+<ion-view style="background:black">
+
+  <ion-content style="background:url('img/background10.png');background-repeat:no-repeat;background-size:100% 100%;">
+         <button class="button button-positive button-block button-outline" ng-click="doLoginSocial('facebook');" style="color:blue;border-radius:5%;">
+          <i class="icon icon-left ion-social-facebook positive" >&nbsp;&nbsp;Sign up with Facebook</i>
+        </button>
+		 
+	  <h4 style="color:darkgray;text-align:center;">OR...</h4>
+	 
+  <form ng-submit="doSignUp()">
+    <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label" style="color:white">E-mail</span>
+          <input type="email" ng-model="signUpData.userEmail"  placeholder="E-mail" style="background:transparent;">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" style="color:white">Password</span>
+          <input type="password" ng-model="signUpData.userPassword"  placeholder="Password" style="background:transparent;">
+        </label>
+    </div>
+    <div class="center padding">
+      <button class="button button-block button-positive" type="submit" style="color:blue">Sign up</button>
+    </div>
+	
+	<div class="row">
+          <div class="col">Already a member?<br/>
+             <button class="button button-medium button-outline" ng-click="closeSignUp2()"  style="color:blue">Login</button>
+          </div>
+         
+      </div>
+	  
+  </form>
+
+  </ion-content>
+</ion-view>
+</ion-view>

@@ -1,0 +1,115 @@
+<ion-view style="background:black">
+  
+    
+  
+  <ion-content  ng-switch="status.loginMode" style="background:url('img/background10.jpg');background-repeat:no-repeat;background-size:100% 100%;">
+
+    <div ng-switch-when="intro" style="float:center;">
+      <!-- INTRO -->
+      <ion-slide-box 
+        class="intro slidebox"
+        on-slide-changed="slideHasChanged($index)" style="background-color:transparent">
+        <ion-slide>
+          <div class="box intro slide" >
+            <h1 style="color:#f2f2f2;">Bells Branding, Inc</h1>
+            <p style="color:darkblue">Branding Businesses For The Future!</p>
+          </div>
+        </ion-slide>
+		<ion-slide>
+          <div class="box intro slide">
+            <h4 style="color:#f2f2f2">Welcome to Bells Branding, Inc.</h4><br/>
+            <p style="color:white">Bell’s Branding, Inc. is a technical consulting firm specializing in online branding for businesses and individuals.  </p>
+          <p style="color:white">Bell's Branding, Inc specializes in the creation of Websites, Mobile Applications, 
+and Graphic Design </p>
+		  
+		  </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="box intro slide">
+
+            <h2 style="color:#f2f2f2">Individual Consultations</h2>
+            <p style="color:white">Web Design Services</p>
+			 <p style="color:white">Graphic Design Services</p>
+			  <p style="color:white">Mobile App Design Services</p>
+			   <p style="color:white">Customized Technical Services</p>
+
+   
+		
+<br/>
+		 </div>
+
+        </ion-slide>
+		<ion-slide>
+          <div class="box intro slide">
+		
+		
+				  					 <img src="http://uploads.webflow.com/5473ba74f9576a39784d57a9/54d6357c18751c436be25b5a_Stripe.png" style="width:180px;height:180px;"/>
+<br/>
+			<a class="button"  ng-href="tel:5622198373" style="font-size:12px;">Call 1(562) 219-8373</a>
+			<p style="color:darkblue">Copyright: Bells Branding, Inc.</p>
+									
+									</div>
+</ion-slide>
+		
+      </ion-slide-box>
+      <div class="intro below">
+        <button class="button button-dark" ng-click="doLoginSocial('facebook');">
+          <i class="icon icon-left ion-social-facebook positive">&nbsp;&nbsp;Sign in with Facebook</i>
+        </button>
+        <p class="padding">
+          <span class="note">
+            By signing up, you agree to our Terms of Use and Privacy Policy 
+          </span>
+        </p>
+        <button class="button button-dark" ng-click="status['loginMode'] = 'password'">
+          Sign in with E-mail
+        </button>
+      </div>
+    </div>
+    <!-- // INTRO -->
+    <div ng-switch-when="password" class="center">
+      <!-- PASSWORD -->
+      <form ng-submit="doLogin()">
+        <div class="list">
+          <label class="item item-input item-floating-label" >
+            <span class="input-label" style="color:white;">Email</span>
+            <input type="email" ng-model="loginData.userEmail" placeholder="Email" style="background-color:transparent;">
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label" style="color:white;">Password</span>
+            <input type="password" ng-model="loginData.userPassword" placeholder="Password" style="background-color:transparent;">
+          </label>
+        </div>
+        <div class="padding">
+          <button class="button button-block button-dark" type="submit" style="color:blue">Login</button>
+        </div>
+      </form>
+      <div class="padding">
+         <button class="button button-dark" ng-click="doLoginSocial('facebook');"  style="color:blue;border-radius:5%;">
+          <i class="icon icon-left ion-social-facebook positive" >&nbsp;&nbsp;Sign in with Facebook</i>
+        </button>
+      </div>
+
+      <p>
+        <span class="note">
+          By signing up, you agree to our Terms of Use and Privacy Policy 
+        </span>
+      </p>
+          
+      <!-- other -->
+      <div class="row">
+          <div class="col">
+             <button class="button button-block button-stable" ng-click="signUp()"  style="color:blue">Sign up</button>
+          </div>
+          <div class="col">
+            <button class="button button-block button-stable" ng-click="changePassword('lost')"  style="color:blue">Forgot password?</button>
+          </div>
+      </div>
+      
+      
+      
+      <!-- // PASSWORD -->
+    </div>
+
+  </ion-content>
+</ion-view>

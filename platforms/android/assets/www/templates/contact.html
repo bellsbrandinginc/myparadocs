@@ -1,0 +1,39 @@
+
+<ion-view name="contact" view-title="Contact" hide-nav-bar="false" style="background:url('img/background10.png')
+no-repeat center center fixed ;
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;color:darkgray;
+  background-size: cover;opacity:.2;" ng-init="playAudio5()">
+ <ion-nav-bar class="bar bar-color">
+ <ion-nav-buttons>
+ <button class="button icon ion-android-arrow-back" style="background:transparent;color:white;" ui-sref="discover">Back</button>
+ </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="padding center-hor" scroll="false">
+
+</br>
+<ion-item style="position:absolute;left:0px;border:1px solid darkgray;background:transparent;width:290px;">
+</br></br>
+<label style="color:white;">Phone Number</label>
+<ion-item menu-close  href="#/app/donate" ng-click="playAudio3()" class=" item-icon-left" style="left:3px;">
+<i class="icon ion-android-call"></i>
+<a class="button"  id="gradient" ng-href="tel:6464674371" style="font-size:12px;">Call 1(646) 467-4371</a>
+
+	   </ion-item>
+		
+			</br>
+<label style="color:white;">Email</label>
+
+		<ion-item menu-close ui-sref="app.protests" ng-click="playAudio3()" class=" item-icon-left" style="left:3px;background-color:darkgray">
+          <i class="icon ion-ios-email"></i>
+
+<a class="button"  id="gradient" onclick="window.open('https://mail.google.com/', 
+		  '_system', 'location=yes'); return false;"  style="font-size:10px;">damusicplug@gmail.com</a>
+
+		  </ion-item></br>
+		</ion-item>
+</ion-content>
+</ion-view>
+

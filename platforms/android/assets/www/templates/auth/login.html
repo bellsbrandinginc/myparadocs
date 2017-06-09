@@ -1,0 +1,81 @@
+<ion-view style="background:black"  style="background:url('img/background10.png');background-repeat:no-repeat;
+background-size:100% 100%;">
+
+    <div ng-switch-when="intro" style="float:center;">
+      <!-- INTRO -->
+      <ion-slide-box 
+        class="intro slidebox"
+        on-slide-changed="slideHasChanged($index)" style="background-color:transparent">
+        <ion-slide>
+          <div class="box intro slide" >
+            <h1 style="color:white">DaMusicPlug</h1>
+            <p style="color:darkgray">You Need It? We Have It. Period.</p>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="box intro slide">
+            <h1>Welcome to DaMusicPlug.com!!</h1>
+            <p>You Need It? We Have It. Period.</p>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+      <div class="intro below">
+        <button class="button button-dark" ng-click="doLoginSocial('facebook');">
+          <i class="icon icon-left ion-social-facebook positive">&nbsp;&nbsp;Sign in with Facebook</i>
+        </button>
+        <p class="padding">
+          <span class="note">
+            By signing up, you agree to our Terms of Use and Privacy Policy 
+          </span>
+        </p>
+        <button class="button button-dark" ng-click="status['loginMode'] = 'password'">
+          Sign in with E-mail
+        </button>
+      </div>
+    </div>
+    <!-- // INTRO -->
+    <div ng-switch-when="password" class="center">
+      <!-- PASSWORD -->
+      <form ng-submit="doLogin()">
+        <div class="list">
+          <label class="item item-input item-floating-label" >
+            <span class="input-label" style="color:white;">Email</span>
+            <input type="email" ng-model="loginData.userEmail" placeholder="Email" style="background-color:transparent;">
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label" style="color:white;">Password</span>
+            <input type="password" ng-model="loginData.userPassword" placeholder="Password" style="background-color:transparent;">
+          </label>
+        </div>
+        <div class="padding">
+          <button class="button button-block button-dark" type="submit" id="gradient" style="color:blue">Login</button>
+        </div>
+      </form>
+      <div class="padding">
+         <button class="button button-dark" ng-click="doLoginSocial('facebook');"  style="color:blue;border-radius:5%;">
+          <i class="icon icon-left ion-social-facebook positive" >&nbsp;&nbsp;Sign in with Facebook</i>
+        </button>
+      </div>
+
+      <p>
+        <span class="note">
+          By signing up, you agree to our Terms of Use and Privacy Policy 
+        </span>
+      </p>
+          
+      <!-- other -->
+      <div class="row">
+          <div class="col">
+             <button class="button button-block button-stable" ng-click="signUp()" id="gradient" style="color:blue">Sign up</button>
+          </div>
+          <div class="col">
+            <button class="button button-block button-stable" ng-click="changePassword('lost')" id="gradient" style="color:blue">Forgot password?</button>
+          </div>
+      </div>
+      
+      
+      
+      <!-- // PASSWORD -->
+    </div>
+
+</ion-view>
